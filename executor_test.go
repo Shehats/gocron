@@ -15,7 +15,7 @@ func Test_ExecutorExecute(t *testing.T) {
 	wg.Add(1)
 	go e.start()
 
-	var runState = int64(0)
+	runState := int64(0)
 	e.jobFunctions <- jobFunction{
 		name: "test_fn",
 		function: func(arg string) {
@@ -48,7 +48,7 @@ func Test_ExecutorPanicHandling(t *testing.T) {
 	wg.Add(1)
 	go e.start()
 
-	var runState = int64(0)
+	runState := int64(0)
 	e.jobFunctions <- jobFunction{
 		name: "test_fn",
 		function: func() {
@@ -65,5 +65,4 @@ func Test_ExecutorPanicHandling(t *testing.T) {
 
 	state := <-panicHandled
 	assert.Equal(t, state, true)
-
 }

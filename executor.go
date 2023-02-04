@@ -64,7 +64,6 @@ func (e *executor) start() {
 
 				if e.maxRunningJobs != nil {
 					if !e.maxRunningJobs.TryAcquire(1) {
-
 						switch e.limitMode {
 						case RescheduleMode:
 							return
@@ -79,7 +78,6 @@ func (e *executor) start() {
 
 							if err := e.maxRunningJobs.Acquire(f.ctx, 1); err != nil {
 								break
-
 							}
 						}
 					}

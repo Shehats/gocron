@@ -657,7 +657,6 @@ func ExampleScheduler_Seconds() {
 	_, _ = s.Every(1).Seconds().Do(task)
 	_, _ = s.Every("1s").Seconds().Do(task)
 	_, _ = s.Every(time.Second).Seconds().Do(task)
-
 }
 
 func ExampleScheduler_SetMaxConcurrentJobs() {

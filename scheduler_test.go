@@ -837,9 +837,7 @@ func TestScheduler_Stop(t *testing.T) {
 	t.Run("stops all jobs", func(t *testing.T) {
 		t.Parallel()
 		s := NewScheduler(time.UTC)
-		job, _ := s.Every(3).Second().Do(func() {
-			//noop
-		})
+		job, _ := s.Every(3).Second().Do(func() {})
 		s.StartAsync()
 		time.Sleep(1 * time.Second) // enough time for job to run
 		preStopJobTimer := job.timer
